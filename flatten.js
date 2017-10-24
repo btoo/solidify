@@ -125,9 +125,10 @@ module.exports = args => {
    
    ` + sol;
   
-    console.log(sol);
+    return sol
   } catch(e) {
-    console.error(e.message);
+    console.error(e.message)
+    return e.message
   }
 
 }

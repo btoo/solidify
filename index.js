@@ -7,8 +7,18 @@ const flatten = require('./flatten')
 //   file: './contracts/Board.sol'
 // })
 
-module.exports = flattenConfigs => {
+const loaderUtils = require('loader-utils')
 
-  console.log('gotem', flattenConfigs)
-  return flatten(flattenConfigs)
+module.exports = function(contents){
+  const options = loaderUtils.getOptions(this)
+  // console.log('gotem', flattenConfigs)
+  // console.log('options be', options)
+  
+  const file = this.resourcePath
+  
+  return flatten({
+    ...options,
+    file
+  })
+
 }
